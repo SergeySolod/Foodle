@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getBasket} from "../../redux/selectors/basket-selector";
 import {deleteInBasket} from "../../redux/reducers/basket-reducer";
 import VoidBasket from "../../components/voidBasket";
+import SidebarBasket from "../../components/sidebars/sidebarBasket";
 
 const Basket = (props) => {
     return (
@@ -10,7 +11,7 @@ const Basket = (props) => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-3'>
-                        Сайдбар
+                       <SidebarBasket/>
                     </div>
                     <div className='col-md-9'>
                         <div className="row">

@@ -3,9 +3,10 @@ import {connect} from 'react-redux'
 import {withRouter, NavLink} from "react-router-dom";
 import {compose} from "redux";
 
-import {requestRestaurants} from "../../redux/reducers/restaurants-reducer";
-import {getRestaurants, getIsFetching} from "../../redux/selectors/restaurants-selector";
+import {requestRestaurants, setSearchRest} from "../../redux/reducers/restaurants-reducer";
+import {getIsFetching, getSearchRest} from "../../redux/selectors/restaurants-selector";
 import Preloader from "../../components/preloader";
+import SidebarRest from "../../components/sidebars/sidebarRest";
 
 const Restaurants = (props) => {
     useEffect(() => {
@@ -18,7 +19,7 @@ const Restaurants = (props) => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-3'>
-                        Сайдбар
+                        <SidebarRest cityId={props.match.params.cityId} searchQuery={props.search} setSearchQuery={props.setSearchRest}/>
                     </div>
                             {props.isFetching ? <Preloader/> : null}
                         <div className='col-md-9'>
@@ -52,16 +53,26 @@ const Restaurants = (props) => {
     )
 }
 
+const filterRest = (restaurants, search) => {
+    return restaurants.filter(
+        o => o.name.toLowerCase().indexOf(search.toLowerCase()) >= 0);
+};
+
+const searchCategory = (restaurants, search) => {
+    return filterRest(restaurants, search)
+};
+
 let mapStateToProps = (state) => {
     return (
         {
-            restaurants: getRestaurants(state),
-            isFetching: getIsFetching(state)
+            restaurants: searchCategory(state.restaurants.restaurants, state.restaurants.search),
+            isFetching: getIsFetching(state),
+            search: getSearchRest(state)
         }
     )
 }
 
 export default compose(
-    connect(mapStateToProps, {requestRestaurants}),
+    connect(mapStateToProps, {requestRestaurants, setSearchRest}),
     withRouter
 )(Restaurants);

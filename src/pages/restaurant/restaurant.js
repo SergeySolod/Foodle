@@ -43,10 +43,12 @@ const Restaurant = (props) => {
                                 <p className='pt-2'>
                                     <NavLink to={`/map/${props.match.params.cityId}/${props.match.params.restaurantId}`}
                                              className="btn btn-info">Посмотреть на карте</NavLink>
-
                                     <NavLink
                                         to={`/change/${props.match.params.cityId}/${props.match.params.restaurantId}/${props.categories[0].id}`}
                                         className="btn btn-success">Посмотреть меню</NavLink>
+                                    <NavLink
+                                        to={`/change/${props.match.params.cityId}`}
+                                        className="btn btn-outline-light ">Назад к ресторанам</NavLink>
                                 </p>
                             </p>
                         </div>

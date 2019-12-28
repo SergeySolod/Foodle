@@ -13,6 +13,9 @@ export const Navbar = () => {
                     <NavLink className="nav-link" to="/change" exact>Выбор ресторана</NavLink>
                 </li>
                 <li className="nav-item active">
+                    <NavLink className="nav-link" to="/change/2/5/357" exact>Любимый ресторан</NavLink>
+                </li>
+                <li className="nav-item active">
                     <NavLink className="nav-link" to="/basket" exact><BasketNavbar/></NavLink>
                 </li>
             </ul>

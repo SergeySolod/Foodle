@@ -9,3 +9,7 @@ export const getIsFetching = (state) => {
 export const getLatLong = (state) => {
     return state.restaurants.restaurants[0]
 }
+
+export const getSearchRest = (state) => {
+    return state.restaurants.search
+}

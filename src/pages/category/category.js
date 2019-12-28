@@ -8,7 +8,7 @@ import {requestCategory, setFilter, setSearch} from "../../redux/reducers/catego
 import {onAddInBasket} from "../../redux/reducers/basket-reducer";
 import {getCategories} from "../../redux/selectors/restaurant-selector";
 import {requestRestaurant} from "../../redux/reducers/restaurant-reducer";
-import Sidebar from "../../components/sidebar";
+import SidebarDish from "../../components/sidebars/sidebarDish";
 import Sorting from "../../components/sorting";
 import orderBy from 'lodash/orderBy.js';
 
@@ -43,9 +43,9 @@ class Category extends React.Component {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-md-3'>
-                                <Sidebar group={this.props.categories} setSearchQuery={this.props.setSearch}
-                                         SearchQuery={this.props.search} cityId={this.props.match.params.cityId}
-                                         restaurantId={this.props.match.params.restaurantId}/>
+                                <SidebarDish group={this.props.categories} setSearchQuery={this.props.setSearch}
+                                             SearchQuery={this.props.search} cityId={this.props.match.params.cityId}
+                                             restaurantId={this.props.match.params.restaurantId}/>
                             </div>
                             <div className='col-md-9'>
                                 <Sorting changeSort={changeSort}/>
