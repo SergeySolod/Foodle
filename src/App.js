@@ -10,6 +10,7 @@ import Category from './pages/category/category'
 import Dish from './pages/dish/dish'
 import MapFromRest from './pages/map/mapFromRest'
 import MapFromCity from './pages/map/mapFromCity'
+import Basket from "./pages/basket/basket";
 
 
 const App = () =>   {
@@ -22,6 +23,7 @@ const App = () =>   {
                 <div className="container pt-4">
                     <Switch>
                         <Route path='/' exact render={() => <Home/>}/>
+                        <Route path='/basket' exact render={() => <Basket/>}/>
                         <Route path='/change' exact render={() => <Cities/>}/>
                         <Route path='/change/:cityId' exact render={() => <Restaurants/>}/>
                         <Route path='/change/:cityId/:restaurantId' exact render={() => <Restaurant/>}/>

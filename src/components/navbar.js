@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-import Basket from './basket'
+import BasketNavbar from './basketNavbar'
 
 export const Navbar = () => {
     return (
@@ -13,7 +13,7 @@ export const Navbar = () => {
                     <NavLink className="nav-link" to="/change" exact>Выбор ресторана</NavLink>
                 </li>
                 <li className="nav-item active">
-                    <NavLink className="nav-link" to="/basket" exact><Basket/></NavLink>
+                    <NavLink className="nav-link" to="/basket" exact><BasketNavbar/></NavLink>
                 </li>
             </ul>
         </nav>

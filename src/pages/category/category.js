@@ -117,7 +117,7 @@ let mapStateToProps = (state) => {
                 state.category.filter,
                 state.category.search),
             categories: getCategories(state),
-            search: state.category.search,
+            search: state.category.search
         }
     )
 }
