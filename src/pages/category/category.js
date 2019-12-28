@@ -5,6 +5,7 @@ import {compose} from "redux";
 
 import Preloader from "../../components/preloader";
 import {requestCategory, setFilter, setSearch} from "../../redux/reducers/category-reducer";
+import {onAddInBasket} from "../../redux/reducers/basket-reducer";
 import {getCategories} from "../../redux/selectors/restaurant-selector";
 import {requestRestaurant} from "../../redux/reducers/restaurant-reducer";
 import Sidebar from "../../components/sidebar";
@@ -63,7 +64,11 @@ class Category extends React.Component {
                                                         <h6 className="card-title">{category.name}</h6>
                                                         <h6 className="card-title">{category.price.value} {category.price.currency}</h6>
                                                         <p className='itemButton'>
-                                                            <button className="btn btn-info">Добавить в корзину</button>
+                                                            <button  onClick={() => {
+                                                                this.props.onAddInBasket(category)
+                                                            }} className="btn btn-info">Добавить в
+                                                                корзину
+                                                            </button>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -112,13 +117,12 @@ let mapStateToProps = (state) => {
                 state.category.filter,
                 state.category.search),
             categories: getCategories(state),
-            search: state.category.search
-
+            search: state.category.search,
         }
     )
 }
 
 export default compose(
-    connect(mapStateToProps, {requestCategory, requestRestaurant, setFilter, setSearch}),
+    connect(mapStateToProps, {requestCategory, requestRestaurant, setFilter, setSearch, onAddInBasket}),
     withRouter
 )(Category);

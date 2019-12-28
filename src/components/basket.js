@@ -1,12 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {getBasket, getCount, getValue} from "../redux/selectors/basket-selector";
 
-const Basket = () => {
+const Basket = (props) => {
     return (
         <div>
-            Корзина
+            Корзина ({props.addedValue} руб/{props.addedCount} блюд)
         </div>
     )
 }
 
-export default connect()(Basket)
+let mapStateToProps = (state) => {
+    return (
+        {
+            basket: getBasket(state),
+            addedCount: getCount(state),
+            addedValue: getValue(state),
+
+        }
+    )
+}
+
+export default connect(mapStateToProps, null)(Basket)

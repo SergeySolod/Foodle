@@ -6,12 +6,14 @@ import citiesReducer from './reducers/cities-reducer'
 import restaurantsReducer from './reducers/restaurants-reducer'
 import restaurantReducer from './reducers/restaurant-reducer'
 import categoryReducer from './reducers/category-reducer'
+import basketReducer from './reducers/basket-reducer'
 
 let reducers = combineReducers({
     cities: citiesReducer,
     restaurants: restaurantsReducer,
     restaurant: restaurantReducer,
     category: categoryReducer,
+    basket: basketReducer,
     form: formReducer
 })
 
