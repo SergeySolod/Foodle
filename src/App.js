@@ -12,14 +12,12 @@ import MapFromRest from './pages/map/mapFromRest'
 import MapFromCity from './pages/map/mapFromCity'
 import Basket from "./pages/basket/basket";
 
-
 const App = () =>   {
         return (
             <div>
                 <Navbar/>
                 <Route path='/map/:cityId/:restaurantId' exact render={() => <MapFromRest/>}/>
                 <Route path='/map/:cityId' exact render={() => <MapFromCity/>}/>
-
                 <div className="container pt-4">
                     <Switch>
                         <Route path='/' exact render={() => <Home/>}/>
